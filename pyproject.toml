@@ -1,0 +1,12 @@
+[project]
+name = "miniagent"
+version = "0.1.0"
+description = "A learning-oriented, minimal LLM coding agent in a single file."
+requires-python = ">=3.9"  # Path.is_relative_to requires 3.9+
+dependencies = ["openai"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

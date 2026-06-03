@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
+
+# OMC tooling runtime state / artifacts (not part of the project)
+.omc/

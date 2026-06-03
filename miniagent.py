@@ -24,7 +24,9 @@ from pathlib import Path
 # Default model. Override with the MODEL env var. gpt-5.4-mini is cheap and good
 # enough for tool use; swap to a stronger model if you need more reliable tool
 # calling on harder tasks.
-DEFAULT_MODEL = os.environ.get("MODEL", "gpt-5.4-mini")
+# `or` (not get's default) so an empty MODEL="" — e.g. a devcontainer passing
+# through an unset host var — still falls back instead of sending model="".
+DEFAULT_MODEL = os.environ.get("MODEL") or "gpt-5.4-mini"
 
 # Hard stop so a confused model can never loop forever.
 MAX_ITERATIONS = 25

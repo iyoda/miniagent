@@ -76,6 +76,14 @@ export OPENAI_API_KEY=sk-...          # see .env.example (NOT auto-loaded)
 The default model is `gpt-5.4-mini`; override with `--model` or the `MODEL` env
 var. For tougher tasks, a stronger model gives more reliable tool calling.
 
+## VS Code Dev Container (optional)
+
+A ready-to-use container lives in [`.devcontainer/`](./.devcontainer/). Open the
+folder in VS Code and run **"Dev Containers: Reopen in Container"** — it pulls a
+Python 3.12 image, runs `pip install -e ".[dev]"`, and wires up pytest. Your
+`OPENAI_API_KEY` (and optional `MODEL`) are passed through from your host shell,
+so no secret is baked into the image.
+
 ## Run
 
 ```bash

@@ -1,0 +1,32 @@
+{
+  // VS Code Dev Container for miniagent.
+  // Open the folder in VS Code and run "Dev Containers: Reopen in Container".
+  "name": "miniagent",
+
+  // Prebuilt Python image (satisfies requires-python >= 3.9). No Dockerfile needed.
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+
+  // Install the package + dev deps (pytest) once the container is created.
+  "postCreateCommand": "pip install -e \".[dev]\"",
+
+  // Pass the API key (and optional MODEL override) through from your host shell,
+  // so nothing secret is baked into the image or committed.
+  "remoteEnv": {
+    "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}",
+    "MODEL": "${localEnv:MODEL}"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": ["tests"]
+      }
+    }
+  }
+}
